@@ -24,9 +24,9 @@ def generate_script(subject, video_length, creativity, api_key, base_url=None, m
 
     # 支持国内模型 API（Kimi / OpenAI 兼容接口）
     model_kwargs = {
-        "openai_api_key": api_key,
+        "api_key": api_key,
         "temperature": creativity,
-        "model_name": model_name,
+        "model": model_name,
         "max_tokens": 2048,      # 限制输出长度，避免生成过长脚本拖慢时间
         "request_timeout": 60    # 单步超时 60 秒，防止卡住
     }
