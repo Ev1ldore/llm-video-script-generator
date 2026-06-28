@@ -28,10 +28,10 @@ def generate_script(subject, video_length, creativity, api_key, base_url=None, m
         "temperature": creativity,
         "model": model_name,
         "max_tokens": 2048,      # 限制输出长度，避免生成过长脚本拖慢时间
-        "request_timeout": 60    # 单步超时 60 秒，防止卡住
+        "timeout": 60            # 单步超时 60 秒，防止卡住
     }
     if base_url:
-        model_kwargs["openai_api_base"] = base_url
+        model_kwargs["base_url"] = base_url
 
     model = ChatOpenAI(**model_kwargs)
 
