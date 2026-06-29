@@ -1,7 +1,7 @@
 import streamlit as st
 from utils import generate_script
 
-st.title("🎬视频脚本Agent")
+st.title("🎬集美Promote生成器📖")
 
 with st.sidebar:
     # 选择模型提供商
