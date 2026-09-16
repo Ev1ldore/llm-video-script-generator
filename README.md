@@ -1,4 +1,4 @@
-# 视频脚本生成器
+# LLM 视频脚本生成器
 
 一个基于 Streamlit 和 LangChain 的中文视频脚本生成工具。输入视频主题、预期时长和创造力参数后，应用会调用大语言模型生成标题，并参考中文维基百科检索结果生成结构化脚本。
 
@@ -50,7 +50,7 @@ video_generator/
 ├── utils.py          # 提示词、模型调用和维基百科检索
 ├── requirements.txt  # Python 依赖及锁定版本
 ├── .gitignore        # Git 忽略规则
-└── readme.md          # 项目说明
+└── README.md         # 项目说明
 ```
 
 ## 快速开始
@@ -58,7 +58,8 @@ video_generator/
 ### 1. 进入项目目录
 
 ```bash
-cd /Users/leecy/Documents/米奇妙妙屋/视频脚本生成器/video_generator
+git clone https://github.com/Ev1ldore/llm-video-script-generator.git
+cd llm-video-script-generator
 ```
 
 ### 2. 创建并激活虚拟环境
@@ -158,10 +159,6 @@ http://localhost:8501
 ### 维基百科搜索失败
 
 程序会显示“维基百科搜索失败”，随后跳过参考资料并直接根据主题生成脚本，不会因此终止整个流程。
-
-### Kimi 密钥被拦截
-
-当前界面对以 `ak-` 开头的 Kimi 密钥设置了余额提示和拦截逻辑。若账户已经恢复可用，需要先调整 `main.py` 中的对应判断。
 
 ## 当前限制
 

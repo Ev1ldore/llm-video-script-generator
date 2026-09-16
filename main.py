@@ -1,7 +1,7 @@
 import streamlit as st
 from utils import generate_script
 
-st.title("🎬集美Promote生成器📖")
+st.title("LLM 视频脚本生成器")
 
 with st.sidebar:
     # 选择模型提供商
@@ -65,16 +65,8 @@ with st.sidebar:
     # 关键：显示当前实际使用的 API 地址，防止缓存导致发错服务器
     st.info(f"当前调用地址：{base_url}")
 
-    # 如果当前选的是 Kimi，提醒用户余额不足，建议切换
-    if model_provider == "Moonshot AI (Kimi)":
-        st.warning("⚠️ Kimi 当前余额不足，请在下拉菜单切换为 DeepSeek，或使用其他提供商。")
-
-    api_key = st.text_input(f"请输入{config['key_label']} API密钥：", type="password")
-
-    # 拦截：如果用的是 Kimi 的 Key，直接报错
-    if api_key and api_key.startswith("ak-"):
-        st.error("❌ 检测到这是 Kimi (Moonshot) 的 API Key，余额已不足。请换成 DeepSeek 的 Key (sk- 开头)，或在上方下拉菜单切换到其他提供商。")
-        st.stop()
+    api_key_label = config["key_label"] or "模型服务商"
+    api_key = st.text_input(f"请输入{api_key_label} API 密钥：", type="password")
 
     if config["key_url"]:
         st.markdown(f"[获取{config['key_label']} API密钥]({config['key_url']})")
